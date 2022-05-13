@@ -1,0 +1,475 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Gilroy;
+  font-display: swap;
+  src: url("../fonts/Gilroy-Medium.woff2") format("woff2"), url("../fonts/Gilroy-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: Gilroy;
+  font-display: swap;
+  src: url("../fonts/Gilroy-Regular.woff2") format("woff2"), url("../fonts/Gilroy-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: Gilroy;
+  font-display: swap;
+  src: url("../fonts/Gilroy-Semibold.woff2") format("woff2"), url("../fonts/Gilroy-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 1728px;
+}
+
+body {
+  color: #07083C;
+  line-height: 1;
+  font-family: "Gilroy";
+  font-size: 1.125rem;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea {
+  font-family: "Gilroy";
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ol, ul, li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.wrapper > .page {
+  flex: 1 1 auto;
+}
+.wrapper > * {
+  min-width: 0;
+}
+
+/*
+(i) Стили будут применяться ко 
+всем классам содержащим *__container
+Например header__container, main__container и т.д.
+Снипет (HTML): cnt
+*/
+[class*=__container] {
+  position: relative;
+  height: 100%;
+  max-width: 87.5rem;
+  box-sizing: content-box;
+  margin: 0 auto;
+  padding: 0 0.9375rem;
+}
+
+[class*=__container-big] {
+  position: relative;
+  height: 100%;
+  max-width: 108rem;
+  box-sizing: content-box;
+  margin: 0 auto;
+  padding: 0 0.9375rem;
+}
+
+[class*=ibg] {
+  position: relative;
+}
+[class*=ibg] img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+[class*=ibg-contain] img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.darken::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.locked {
+  overflow: hidden;
+}
+
+.burger.hidden {
+  display: none;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2.5rem;
+  color: #fff;
+  background-color: #7074F9;
+  transition: box-shadow 0.5s;
+}
+.button_medium {
+  width: 13.125rem;
+  height: 3.5rem;
+}
+.button_big {
+  width: 13.125rem;
+  height: 4.5rem;
+}
+.button:hover {
+  box-shadow: inset 11em 0 0 0 #9A9DFF;
+}
+.button:active {
+  background-color: #07083C;
+}
+
+.accent {
+  color: #7074F9;
+}
+
+.text {
+  font-size: 1.625rem;
+  line-height: 1.875em;
+  font-weight: 400;
+}
+
+.title {
+  font-size: 6.25rem;
+  font-weight: 600;
+  line-height: 1.16em;
+}
+
+.swipe-link {
+  padding: 0.625rem 0;
+  overflow: hidden;
+  position: relative;
+}
+.swipe-link__orig {
+  position: relative;
+  transform: translateY(0);
+}
+.swipe-link__fake {
+  position: absolute;
+  left: 0;
+  transform: translateY(100%);
+  color: #7074F9;
+}
+.swipe-link div {
+  display: block;
+  transition: transform 0.3s ease 0s;
+}
+.swipe-link:hover .swipe-link__orig {
+  transform: translateY(-200%);
+}
+.swipe-link:hover .swipe-link__fake {
+  transform: translateY(-100%);
+}
+
+.logo__intersection {
+  fill: #7074F9;
+}
+.logo__letter {
+  fill: #07083C;
+}
+.logo__letter_1 {
+  transition: fill 0.2s;
+}
+.logo__letter_2 {
+  transition: fill 0.4s;
+}
+.logo__letter_3 {
+  transition: fill 0.6s;
+}
+.logo__letter_4 {
+  transition: fill 0.8s;
+}
+.logo__first-shape {
+  fill: #FF8080;
+  transition: fill 0.5s;
+}
+.logo__second-shape {
+  fill: #9A9DFF;
+  transition: fill 0.7s;
+}
+.logo:hover .logo__letter {
+  fill: #7074F9;
+}
+.logo:hover .logo__first-shape {
+  fill: #fdb9b9;
+}
+.logo:hover .logo__second-shape {
+  fill: #b4b6ff;
+}
+
+.burger {
+  position: relative;
+  z-index: 10;
+}
+.burger::before, .burger::after {
+  content: "";
+  display: block;
+  width: 1.875rem;
+  height: 0.125rem;
+  background-color: #07083C;
+  position: relative;
+  transition: all 0.2s ease;
+}
+.burger::before {
+  margin-bottom: 0.5rem;
+}
+.burger.active::before {
+  top: 0.5em;
+  transform: rotate(45deg);
+}
+.burger.active::after {
+  bottom: 0.5em;
+  transform: rotate(-45deg);
+}
+
+.menu[data-burgered] {
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform: translate(-100%);
+  transition: transform 0.5s;
+}
+.menu[data-burgered].active {
+  transform: translate(0%);
+}
+
+.header {
+  z-index: 4;
+  position: fixed;
+  width: 100%;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+.header__body {
+  padding: 3.75rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+.header__logo {
+  margin-right: 7.5rem;
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+.header__link:not(:last-child) {
+  margin-right: 4.5rem;
+}
+.header__options {
+  display: flex;
+  align-items: center;
+}
+.header__theme {
+  cursor: pointer;
+  position: relative;
+  width: 3.5rem;
+  margin-right: 2rem;
+  border-radius: 30%;
+  background-color: #fff;
+  transition: box-shadow 0.5s;
+}
+.header__theme:before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  display: block;
+  top: -0.125rem;
+  left: -0.125rem;
+  border-radius: 30%;
+  width: 108%;
+  height: 108%;
+  transform: scaleX(0);
+  background-color: #9A9DFF;
+  transition: all 0.3s ease 0s;
+}
+.header__theme:hover {
+  box-shadow: inset 3em 0 0 0 #F2F3F9;
+}
+.header__theme svg {
+  width: 1.625rem;
+}
+.header__theme .moon {
+  stroke: #07083C;
+  transition: stroke 0.3s;
+}
+.header__theme .stars {
+  fill: #7074F9;
+  transition: stroke 0.3s;
+}
+.header__theme:hover:before {
+  transform: scaleX(1);
+}
+.intro {
+  overflow: hidden;
+  height: 100vh;
+}
+.intro__bg {
+  width: 2400px;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.intro__container {
+  height: 100%;
+}
+.intro__body {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[3];
+  grid-template-rows: repeat(3, 1fr);
+  align-items: end;
+}
+.intro__star {
+  right: 14%;
+  position: absolute;
+}
+.intro__mascot {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 68.75rem;
+}
+.intro__mascot img {
+  width: 100%;
+}
+.intro__title {
+  font-size: 8rem;
+  line-height: 1em;
+  font-weight: 600;
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+.intro__links {
+  -ms-grid-row: 3;
+  grid-row: 3;
+  display: flex;
+  font-size: 1.5rem;
+  margin-bottom: 3.625rem;
+  color: #8D8DA8;
+  line-height: 0.66em;
+}
+.intro__link {
+  position: relative;
+}
+.intro__link:not(:last-child) {
+  margin-right: 4rem;
+}
+.intro__link:hover .intro__link-arrow {
+  left: 0.625rem;
+}
+.intro__link:hover .intro__link-arrow:before {
+  background-color: #7074F9;
+}
+.intro__link:hover .intro__link-arrow:after {
+  opacity: 1;
+  border-color: #7074F9;
+}
+.intro__link-arrow {
+  position: absolute;
+  transition: left 0.3s ease 0s;
+  left: 0;
+  bottom: -1.125rem;
+  width: 100%;
+  pointer-events: none;
+}
+.intro__link-arrow:before {
+  content: "";
+  width: 100%;
+  display: block;
+  height: 0.125rem;
+  background-color: rgba(141, 141, 168, 0.5);
+  transition: background-color 0.3s, opacity 0.3s;
+}
+.intro__link-arrow:after {
+  content: "";
+  display: block;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid;
+  border-right: 0.125rem solid;
+  border-color: rgba(141, 141, 168, 0.5);
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: border-color 0.3s, opacity 0.3s;
+  position: absolute;
+  right: 0;
+  top: -0.25rem;
+}
